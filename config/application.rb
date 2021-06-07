@@ -34,5 +34,12 @@ module Ionic101
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.middleware.use Rack::Cors do 
+      allow do 
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options, :delete]
+      end
+    end
   end
 end
